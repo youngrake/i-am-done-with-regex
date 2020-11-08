@@ -9,7 +9,7 @@ import * as Global from 'global';
 import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
-  <ThemeProvider theme={Global.darkTheme}>
+  <ThemeProvider theme={Global.Theme}>
     <Global.Style />
     <App />
   </ThemeProvider>,
