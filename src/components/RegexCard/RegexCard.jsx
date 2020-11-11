@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import copy from 'copy-to-clipboard';
 import { ThemeContext, useTheme } from 'styled-components';
 
+import ReactTooltip from 'react-tooltip';
+
 import * as Styled from './styled';
 
-const RegexCard = ({ description, name, regex, tags }) => {
+const RegexCard = ({ description, name, regex }) => {
   const theme = useTheme(ThemeContext);
 
   const copyToClipBoard = () => {
@@ -16,32 +18,45 @@ const RegexCard = ({ description, name, regex, tags }) => {
     <Styled.RegexCardContainer>
       <Styled.Header>
         <Styled.Title>{name}</Styled.Title>
-        <Styled.Icon
-          onMouseEnter={() => console.log(description)}
-          alt="info"
-          src={theme.assets.infoSvg}
-        />
+        {description && (
+          <>
+            <Styled.Icon
+              data-tip
+              data-for={name}
+              alt="info"
+              src={theme.assets.infoSvg}
+            />
+            <ReactTooltip id={name} className="popup">
+              <ul style={{ padding: '0px 15px' }}>
+                {description.map((desc, index) => (
+                  <li key={index}>{desc}</li>
+                ))}
+              </ul>
+            </ReactTooltip>
+          </>
+        )}
       </Styled.Header>
-      <Styled.Regex readOnly defaultValue={regex} onClick={copyToClipBoard} />
+      <Styled.Regex
+        data-tip="Copied!"
+        data-event="click focus"
+        readOnly
+        defaultValue={regex}
+        onClick={copyToClipBoard}
+      />
+      <ReactTooltip className="copied" delayHide={1000} effect="solid" />
       <Styled.Input required pattern={regex} placeholder="Validate" />
-      <Styled.Tags>
-        {tags.map((tag, index) => (
-          <Styled.Tag key={index}>#{tag}</Styled.Tag>
-        ))}
-      </Styled.Tags>
     </Styled.RegexCardContainer>
   );
 };
 
 RegexCard.propTypes = {
-  description: PropTypes.string.isRequired,
+  description: PropTypes.arrayOf(PropTypes.string),
   name: PropTypes.string.isRequired,
   regex: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string),
 };
 
 RegexCard.defaultProps = {
-  tags: [],
+  description: undefined,
 };
 
 export default RegexCard;

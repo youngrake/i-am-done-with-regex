@@ -30,4 +30,17 @@ export const Style = createGlobalStyle`
     a {
       text-decoration: none;
     }
+
+    .popup {
+      word-break: normal;
+      max-width: 300px;
+    }
+
+    .copied {
+      border-radius: 20px;
+      background-color: #00FF2A !important;
+      :after {
+        border-top-color: #00FF2A !important;
+      }
+    }
 `;

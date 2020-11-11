@@ -11,6 +11,7 @@ export const RegexCardContainer = styled.div`
   width: 292px;
   margin: 5px;
   padding: 10px;
+  padding-bottom: 20px;
   border-radius: 0.3em;
   box-shadow: rgba(26, 26, 26, 0.2) 0px 4px 6px,
     rgba(26, 26, 26, 0.1) 0px 5px 15px;
@@ -37,43 +38,13 @@ export const Icon = styled.img`
   width: 20px;
 `;
 
-export const DescriptionBlock = styled.div``;
-
-export const Tags = styled.ul`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  user-select: none;
-  list-style-type: none;
-  margin-top: 10px;
-`;
-
-export const Tag = styled.li`
-  display: inline-block;
-  color: black;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  padding: 2px 5px;
-  margin: 5px 5px;
-  background-color: #ffa700;
-
-  :hover {
-    background-color: #ffbd40;
-  }
-`;
-
 const input = styled.input`
   width: 100%;
   height: 46px;
   text-align: center;
-  color: rgb(234, 234, 234);
+  color: ${({ theme }) => theme.colors.text};
   background-color: rgb(44, 48, 53);
-  border: 1px solid rgb(44, 48, 53);
+  border: 2px solid rgb(44, 48, 53);
   outline: none;
   border-radius: 0.4em;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px inset;
