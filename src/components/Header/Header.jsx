@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <Styled.Header>
       <Styled.HeaderContainer>
-        <Styled.HeaderLogo onClick={scrollUp}>
+        <Styled.HeaderLogo to="/" onClick={scrollUp}>
           I am done with Regex
         </Styled.HeaderLogo>
         <Styled.GithubLink

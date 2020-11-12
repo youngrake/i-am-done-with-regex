@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Header = styled.header`
   z-index: 1;
   position: fixed;
@@ -20,10 +22,10 @@ export const HeaderContainer = styled.div`
 export const GithubLink = styled.a`
   font-size: 18px;
   font-weight: 500;
-  color: #ffffff;
 `;
 
-export const HeaderLogo = styled.div`
+export const HeaderLogo = styled(Link)`
+  text-decoration: none;
   cursor: pointer;
   font-weight: 600;
   text-transform: uppercase;

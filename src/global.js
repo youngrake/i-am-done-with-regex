@@ -15,7 +15,7 @@ export const Theme = {
 };
 
 export const Style = createGlobalStyle`
-    *{
+    * {
         box-sizing: border-box;
     }
 
@@ -28,6 +28,7 @@ export const Style = createGlobalStyle`
     }
 
     a {
+      color: ${({ theme }) => theme.colors.text};
       text-decoration: none;
     }
 
