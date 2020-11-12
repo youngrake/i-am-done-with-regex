@@ -52,7 +52,6 @@ export const SearchInputIcon = styled(Search)`
 
   &:before {
     content: ${props => props.icon};
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

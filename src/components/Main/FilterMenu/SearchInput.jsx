@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
 
-import * as Styled from './styled';
+import * as Styled from '../styled';
 
 const SearchInput = ({ onChange, value: v, ...inputProps }) => {
   const [value, setValue] = useState(v);

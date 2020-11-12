@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import useMergeState from 'utils/useFilterState';
-import { fetchData } from 'utils';
+import { useFilterState, useFetch } from 'utils';
 
-import { RegexCard } from 'components';
-import { FilterMenu } from './FilterMenu';
+import { RegexCard, Loader } from 'components';
+import FilterMenu from './FilterMenu';
 
 import * as Styled from './styled';
 
@@ -14,16 +13,12 @@ const defaultFilters = {
 
 const Main = () => {
   // eslint-disable-next-line prefer-const
-  let [entries, setEntries] = useState([]);
-  const [filters, mergeFilters] = useMergeState(defaultFilters);
+  let { entries, loading } = useFetch();
 
-  entries = sortEntries(filters, entries);
-
-  useEffect(() => {
-    fetchData().then(data => {
-      setEntries(data);
-    });
-  }, []);
+  const [filters, mergeFilters] = useFilterState(defaultFilters);
+  if (entries) {
+    entries = sortEntries(filters, entries);
+  }
 
   return (
     <Styled.Container>
@@ -33,11 +28,15 @@ const Main = () => {
         filters={filters}
         mergeFilters={mergeFilters}
       />
-      <Styled.RegexCardsContainer>
-        {entries.map(entry => (
-          <RegexCard key={entry.id} {...entry} />
-        ))}
-      </Styled.RegexCardsContainer>
+      {!loading ? (
+        <Styled.RegexCardsContainer>
+          {entries.map(entry => (
+            <RegexCard key={entry.id} {...entry} />
+          ))}
+        </Styled.RegexCardsContainer>
+      ) : (
+        <Loader />
+      )}
     </Styled.Container>
   );
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import * as Styled from './styled';
+import * as Styled from '../styled';
 
 import SearchInput from './SearchInput';
 
-export const FilterMenu = ({ filters, mergeFilters }) => {
+const FilterMenu = ({ filters, mergeFilters }) => {
   const { searchValue } = filters;
 
   return (
@@ -22,3 +22,5 @@ FilterMenu.propTypes = {
   filters: PropTypes.object.isRequired,
   mergeFilters: PropTypes.func.isRequired,
 };
+
+export default FilterMenu;

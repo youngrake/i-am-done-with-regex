@@ -1,4 +1,4 @@
-import fetchData from './fetchData';
+import useFetch from './useFetch';
 import useFilterState from './useFilterState';
 
-export { fetchData, useFilterState };
+export { useFetch, useFilterState };

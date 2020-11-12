@@ -43,7 +43,7 @@ const RegexCard = ({ description, name, regex }) => {
         defaultValue={regex}
         onClick={copyToClipBoard}
       />
-      <ReactTooltip className="copied" delayHide={1000} effect="solid" />
+      <ReactTooltip className="copied" delayHide={700} effect="solid" />
       <Styled.Input required pattern={regex} placeholder="Validate" />
     </Styled.RegexCardContainer>
   );
