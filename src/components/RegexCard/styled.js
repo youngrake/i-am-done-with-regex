@@ -53,6 +53,17 @@ const input = styled.input`
 export const Regex = styled(input)`
   cursor: pointer;
   margin-bottom: 10px;
+  :active {
+    border-color: #00ff2a;
+  }
+
+  :not(:active) {
+    -webkit-transition: all 1.5s ease-in-out;
+    -moz-transition: all 1.5s ease-in-out;
+    -ms-transition: all 1.5s ease-in-out;
+    -o-transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease-in-out;
+  }
 `;
 
 export const Input = styled(input)`

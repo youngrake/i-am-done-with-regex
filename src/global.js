@@ -36,12 +36,4 @@ export const Style = createGlobalStyle`
       word-break: normal;
       max-width: 300px;
     }
-
-    .copied {
-      border-radius: 20px;
-      background-color: #00FF2A !important;
-      :after {
-        border-top-color: #00FF2A !important;
-      }
-    }
 `;

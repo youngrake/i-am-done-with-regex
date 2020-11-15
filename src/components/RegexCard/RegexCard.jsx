@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as copy from 'copy-to-clipboard';
 import { ThemeContext, useTheme } from 'styled-components';
-
+import copy from 'copy-to-clipboard';
 import ReactTooltip from 'react-tooltip';
 
 import * as Styled from './styled';
@@ -36,18 +35,7 @@ const RegexCard = ({ description, name, regex }) => {
           </>
         )}
       </Styled.Header>
-      <Styled.Regex
-        data-tip="Copied!"
-        data-event="click focus"
-        readOnly
-        defaultValue={regex}
-      />
-      <ReactTooltip
-        afterShow={copyToClipBoard}
-        className="copied"
-        delayHide={700}
-        effect="solid"
-      />
+      <Styled.Regex onClick={copyToClipBoard} readOnly defaultValue={regex} />
       <Styled.Input required pattern={regex} placeholder="Validate" />
     </Styled.RegexCardContainer>
   );
