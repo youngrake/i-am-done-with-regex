@@ -1,3 +1,12 @@
 # i-am-done-with-regex
 
-[Regex live](https://regex-f7269.web.app/)
+[Live app](https://regex-f7269.web.app/)
+
+## Technologies used
+
+* React 
+* Styled-components
+* Eslint
+* Webpack
+* Firebase
+* React-tooltip
